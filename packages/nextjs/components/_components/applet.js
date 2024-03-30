@@ -40,7 +40,7 @@ export default function Applet() {
   if (isConnecting) return <div>Connecting…</div>;
   if (isDisconnected) return <div>Please Connect your wallet</div>;
   return (
-    <div className="mt-4 md:flex md:flex-row flex flex-col items-center w-full space-x-4 md:mx-10">
+    <div className="mt-4 md:flex md:flex-row flex flex-col items-center w-full space-x-4 md:mx-10 ">
       <div className="flex justify-center items-center my-2 inner-body rounded-2xl md:w-2/5">
         <div className="frame md:p-24 px-5 p-12 rounded-2xl">
           <Link href="/newapplet">

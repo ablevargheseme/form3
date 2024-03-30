@@ -87,7 +87,7 @@ export default function Actiontrig({
             className="frame rounded-2xl md:p-5 p-4 lg:px-40 md:px-20 mx-6"
           // onSubmit={handleSubmit}
           >
-            <div className="font-semibold flex justify-center">CREATE NEW APPLET</div>
+            <div className="font-semibold flex justify-center text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-600 inline-block text-transparent bg-clip-text">CREATE NEW APPLET</div>
             <label className="block text-white text-sm font-semibold mb-2 mt-5">Applet Name</label>
 
             <input
@@ -111,7 +111,7 @@ export default function Actiontrig({
 
       <div className="space-y-8 lg:grid lg:grid-cols-2 sm:gap-6 xl:gap-10 lg:space-y-0">
         <div className="frame flex flex-col p-6 mx-6 md:mx-auto max-w-lg text-center text-white rounded-lg shadow relative overflow-hidden backdrop-filter backdrop-blur-lg">
-          <h3 className="mb-4 text-2xl font-semibold">Trigger</h3>
+          <h3 className="mb-4 text-2xl font-semibold font-bold bg-gradient-to-r from-purple-400 to-pink-600 inline-block text-transparent bg-clip-text">Trigger</h3>
           <p className="font-light text-gray-100 sm:text-lg dark:text-gray-100">
             Relevant for multiple users, extended & premium support.
           </p>
@@ -151,14 +151,15 @@ export default function Actiontrig({
           </select>
 
           <div className="flex justify-center mt-10">
-            <button className="bg-[#331a3e] p-2 px-5 rounded-xl" type="button" onClick={() => setShowModal(true)}>
+            
+            <button className="flex items-center bg-black w-36 h-12 justify-center rounded-xl cursor-pointer relative overflow-hidden transition-all duration-500 ease-in-out shadow-md hover:scale-105 hover:shadow-lg before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-[#009b49] before:to-[rgb(105,184,141)] before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-xl hover:before:left-0 text-[#fff]" type="button" onClick={() => setShowModal(true)}>
               Add Config
             </button>
           </div>
         </div>
 
         <div className="frame flex flex-col p-6 mx-6 md:mx-auto max-w-lg text-center text-white rounded-lg shadow relative overflow-hidden backdrop-filter backdrop-blur-lg">
-          <h3 className="mb-4 text-2xl font-semibold">Action</h3>
+          <h3 className="mb-4 text-2xl font-semibold font-bold bg-gradient-to-r from-purple-400 to-pink-600 inline-block text-transparent bg-clip-text">Action</h3>
           <p className="font-light text-gray-500 sm:text-lg dark:text-gray-100">
             Best for large scale uses and extended redistribution rights.
           </p>
@@ -190,7 +191,7 @@ export default function Actiontrig({
           </select>
 
           <div className="flex justify-center mt-10">
-            <button className="bg-[#331a3e] p-2 px-5 rounded-xl" type="button" onClick={() => setShowModal1(true)}>
+            <button className="flex items-center bg-black w-36 h-12 justify-center rounded-xl cursor-pointer relative overflow-hidden transition-all duration-500 ease-in-out shadow-md hover:scale-105 hover:shadow-lg before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-[#009b49] before:to-[rgb(105,184,141)] before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-xl hover:before:left-0 text-[#fff]" type="button" onClick={() => setShowModal1(true)}>
               Add Config
             </button>
           </div>
@@ -202,7 +203,7 @@ export default function Actiontrig({
           <>
             <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
               <div className="relative w-auto md:my-6 mx-9 md:mx-auto max-w-3xl">
-                <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full backdrop-blur-xl outline-none focus:outline-none">
+                <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full backdrop-blur-3xl outline-none focus:outline-none">
                   <div className="flex items-start justify-between p-8 border-b border-solid border-gray-300 rounded-t ">
                     <h3 className="text-3xl font=semibold">Trigger Config</h3>
                     <button
@@ -251,7 +252,7 @@ export default function Actiontrig({
           <>
             <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
               <div className="relative w-auto my-6 md:mx-auto mx-9 max-w-3xl">
-                <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full   backdrop-blur-xl  outline-none focus:outline-none">
+                <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full   backdrop-blur-3xl  outline-none focus:outline-none">
                   <div className="flex items-start justify-between p-8 border-b border-solid border-gray-300 rounded-t ">
                     <h3 className="text-3xl font=semibold">Action Config</h3>
                     <button

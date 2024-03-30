@@ -73,35 +73,42 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <div className="flex items-center flex-col flex-grow pt-10">
+      <div className="flex items-center flex-col flex-grow pt-10 bg-[#070F2B]">
         <div>
-          <div className="main-body h-fit flex justify-center">
-            <Actiontrig
-              appletName={appletName}
-              setAppletName={setAppletName}
-              appletDescription={appletDescription}
-              setAppletDescription={setAppletDescription}
-              triggerBlockchain={triggerBlockchain}
-              setTriggerBlockchain={setTriggerBlockchain}
-              triggerType={triggerType}
-              setTriggerType={setTriggerType}
-              service={service}
-              setService={setService}
-              actionType={actionType}
-              setActionType={setActionType}
-              ownershipContractAddress={ownershipContractAddress}
-              setOwnershipContractAddress={setOwnershipContractAddress}
-              actionValue={actionValue}
-              setActionValue={setActionValue}
-            />
-          </div>
+        <div className="main-body h-fit flex justify-center">
 
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            onClick={handleCreateClick}
-          >
-            Create
-          </button>
+<Actiontrig
+
+  appletName={appletName}
+  setAppletName={setAppletName}
+  appletDescription={appletDescription}
+  setAppletDescription={setAppletDescription}
+  triggerBlockchain={triggerBlockchain}
+  setTriggerBlockchain={setTriggerBlockchain}
+  triggerType={triggerType}
+  setTriggerType={setTriggerType}
+  service={service}
+  setService={setService}
+  actionType={actionType}
+  setActionType={setActionType}
+  ownershipContractAddress={ownershipContractAddress}
+  setOwnershipContractAddress={setOwnershipContractAddress}
+  actionValue={actionValue}
+  setActionValue={setActionValue}
+
+
+/>
+</div>
+
+<div className="flex justify-center">
+  <button
+className="bg-blue-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+onClick={handleCreateClick}
+>
+Create
+</button>
+</div>
+
         </div>
 
         <div className="flex-grow bg-base-300 w-full mt-16 px-8 py-12">

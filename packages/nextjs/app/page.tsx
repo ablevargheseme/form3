@@ -12,13 +12,13 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <div className="flex items-center flex-col flex-grow pt-10">
-        <div className="px-5">
+      <div className="flex items-center flex-col flex-grow pt-10 bg-[#070F2B]">
+        <div className="px-5 mt-4">
           <h1 className="text-center">
-            <span className="block text-2xl mb-2">Welcome to</span>
-            <span className="block text-4xl font-bold">FORM3</span>
+            {/* <span className="block text-5xl mb-2">Welcome To</span> */}
+            <span className="block text-6xl font-bold bg-gradient-to-r from-purple-400 to-pink-600 inline-block text-transparent bg-clip-text">CONNECT3</span>
           </h1>
-          <p className="text-center text-lg">
+          <p className="text-center text-2xl pt-4">
             Unlock real-time updates: Receive notifications to your socials directly from your wallet address.
           </p>
           <div className="flex justify-center items-center space-x-2">
@@ -28,9 +28,9 @@ const Home: NextPage = () => {
 
           <Link href="/newapplet" passHref className="">
             <div className="flex justify-center items-center gap-12 flex-col sm:flex-row mt-12">
-              <div className="flex justify-center flex-col bg-base-100 px-4 py-2 text-center items-center max-w-xs rounded-3xl">
+              <div className="flex justify-center flex-col bg-base-100 px-4 py-2 text-center items-center max-w-xs rounded-3xl border-2  transform hover:border-green-600 hover:border-2">
                 <ForwardIcon className="h-6 w-6 fill-secondary" />
-                <p>Launch FORM3</p>
+                <p>Launch CONNECT3</p>
               </div>
             </div>
           </Link>
@@ -55,27 +55,12 @@ const Home: NextPage = () => {
           </div>
 
           <div className="flex justify-center items-center gap-12 flex-col sm:flex-row mt-12">
-            <p className="block text-4xl font-bold">Get Started!</p>
+            <p className="block text-6xl font-bold bg-gradient-to-r from-purple-400 to-pink-600 inline-block text-transparent bg-clip-text">Get Started!</p>
           </div>
           <div className="flex justify-center items-center gap-12 flex-col sm:flex-row mt-12">
             <FeatureSection imageUrl="https://dummyimage.com/460x500" />
           </div>
-          {/* <p className="text-center text-lg">
-            Get started by editing{" "}
-            <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
-              packages/nextjs/app/page.tsx
-            </code>
-          </p> */}
-          {/* <p className="text-center text-lg">
-            Edit your smart contract{" "}
-            <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
-              YourContract.sol
-            </code>{" "}
-            in{" "}
-            <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
-              packages/hardhat/contracts
-            </code>
-          </p> */}
+      
         </div>
 
         <div className="flex-grow bg-base-300 w-full mt-16 px-8 py-12">
@@ -102,6 +87,7 @@ const Home: NextPage = () => {
             </div>
           </div>
         </div>
+        
       </div>
     </>
   );
