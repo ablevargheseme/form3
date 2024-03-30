@@ -128,9 +128,9 @@ export default function Actiontrig({
             onChange={handleTriggerBlockchain}
           >
             <option defaultValue="arbitrum">...</option>
-            <option value="arbitrum">arbitrum</option>
+            <option value="arbitrum" disabled>arbitrum</option>
             <option value="Polygon">Polygon</option>
-            <option value="Base">Base</option>
+            <option value="Base" disabled>Base</option>
           </select>
 
           <label for="trigger" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left mt-8">
@@ -151,7 +151,7 @@ export default function Actiontrig({
           </select>
 
           <div className="flex justify-center mt-10">
-            
+
             <button className="flex items-center bg-black w-36 h-12 justify-center rounded-xl cursor-pointer relative overflow-hidden transition-all duration-500 ease-in-out shadow-md hover:scale-105 hover:shadow-lg before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-[#009b49] before:to-[rgb(105,184,141)] before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-xl hover:before:left-0 text-[#fff]" type="button" onClick={() => setShowModal(true)}>
               Add Config
             </button>
@@ -173,8 +173,9 @@ export default function Actiontrig({
             onChange={handleServiceChange}
           >  <option defaultValue="telegram">...</option>
             <option value="telegram">Telegram</option>
-            <option value="whatsapp">Whatsapp</option>
-            <option value="Twitter">Twitter</option>
+            <option value="whatsapp" disabled>Whatsapp</option>
+            <option value="Twitter" disabled>Twitter</option>
+            {/* <option value="BTC">Bitcoin</option> */}
           </select>
 
           <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left mt-8">
@@ -185,9 +186,9 @@ export default function Actiontrig({
             class="bg-white border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
             onChange={handleActionType}
           >
-            <option defaultValue="message">...</option>
-            <option value="message">Send message</option>
-            <option value="post">Post</option>
+            <option defaultValue="Send_command">...</option>
+            <option value="Send_command" disabled>Send command</option>
+            <option value="Push_message">Push message</option>
           </select>
 
           <div className="flex justify-center mt-10">
