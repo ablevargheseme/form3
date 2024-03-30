@@ -147,7 +147,7 @@ export default function Actiontrig({
             <option defaultValue="NFT_ownership">....</option>
             <option value="wallet_message">Wallet message</option>
             <option value="NFT_ownership">NFT transaction</option>
-            <option value="NFT_transaction">Uniswap</option>
+            <option value="NFT_transaction">Usdt transaction</option>
           </select>
 
           <div className="flex justify-center mt-10">
@@ -170,7 +170,7 @@ export default function Actiontrig({
             id="countries"
             class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
             onChange={handleServiceChange}
-          >
+          >  <option defaultValue="telegram">...</option>
             <option value="telegram">Telegram</option>
             <option value="whatsapp">Whatsapp</option>
             <option value="Twitter">Twitter</option>
