@@ -16,7 +16,9 @@ const Home: NextPage = () => {
         <div className="px-5 mt-4">
           <h1 className="text-center">
             {/* <span className="block text-5xl mb-2">Welcome To</span> */}
-            <span className="block text-6xl font-bold bg-gradient-to-r from-purple-400 to-pink-600 inline-block text-transparent bg-clip-text">CONNECT3</span>
+            <span className="block text-6xl font-bold bg-gradient-to-r from-purple-400 to-pink-600 inline-block text-transparent bg-clip-text">
+              CONNECT3
+            </span>
           </h1>
           <p className="text-center text-2xl pt-4">
             Unlock real-time updates: Receive notifications to your socials directly from your wallet address.
@@ -55,12 +57,13 @@ const Home: NextPage = () => {
           </div>
 
           <div className="flex justify-center items-center gap-12 flex-col sm:flex-row mt-12">
-            <p className="block text-6xl font-bold bg-gradient-to-r from-purple-400 to-pink-600 inline-block text-transparent bg-clip-text">Get Started!</p>
+            <p className="block text-6xl font-bold bg-gradient-to-r from-purple-400 to-pink-600 inline-block text-transparent bg-clip-text">
+              Get Started!
+            </p>
           </div>
           <div className="flex justify-center items-center gap-12 flex-col sm:flex-row mt-12">
             <FeatureSection imageUrl="/opening.gif" />
           </div>
-      
         </div>
 
         <div className="flex-grow bg-base-300 w-full mt-16 px-8 py-12">
@@ -87,7 +90,6 @@ const Home: NextPage = () => {
             </div>
           </div>
         </div>
-        
       </div>
     </>
   );
