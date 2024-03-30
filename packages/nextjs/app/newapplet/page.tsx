@@ -49,9 +49,9 @@ const Home: NextPage = () => {
       console.log("responsedata", responseData);
       // Show response in an alert
       // alert(JSON.stringify(responseData));
-      if (response.ok) {
-        // Redirect to another page upon successful API post
-        // router.push(`/qrpage?id=${responseData.documentid}`); // Replace '/success-page' with your desired route
+      if (responseData.success == true) {
+        alert('Event created')
+        window.open('/appletpage', '_blank'); // Change the URL as needed
       }
     } catch (error) {
       // Handle error, show an error alert

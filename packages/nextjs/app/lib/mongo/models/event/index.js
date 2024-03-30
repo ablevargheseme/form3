@@ -10,6 +10,7 @@ const eventSchema = new mongoose.Schema({
     triggerType: String,
     service: String,
     actionType: String,
+    createdAt: { type: Date, default: Date.now },
 });
 
 const eventModel = mongoose.models.eventModel || mongoose.model('eventModel', eventSchema);

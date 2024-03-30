@@ -34,13 +34,15 @@ export async function POST(request) {
             service: service[0],
             actionType: actionType[0]
         });
+        console.log("event created");
 
-        return new Response(`success`);
+        return new Response(JSON.stringify({ success: true }), { status: 200, headers: { 'Content-Type': 'application/json' } });
     } catch (error) {
         // Handle any errors
-        console.log("error", error);
-        res.status(500).json({ error: "Failed to create document" });
+        return new Response(JSON.stringify({ error: error.message }), { status: 500, headers: { 'Content-Type': 'application/json' } });
     }
+
+
 
 }
 
