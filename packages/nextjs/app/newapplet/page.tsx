@@ -1,13 +1,10 @@
-"use client";
-
+"use client"
 import { useState } from "react";
 import Link from "next/link";
 import Actiontrig from "../../components/_components/trigactn";
 import type { NextPage } from "next";
-
 import { useAccount } from "wagmi";
 import { BugAntIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-// import { Address } from "~~/components/scaffold-eth";
 
 const Home: NextPage = () => {
   const { address: connectedAddress } = useAccount();
@@ -23,6 +20,21 @@ const Home: NextPage = () => {
   const [actionType, setActionType] = useState([]);
 
   const handleCreateClick = async () => {
+    // Check if any value is empty
+    if (
+      !appletName ||
+      !appletDescription ||
+      !ownershipContractAddress ||
+      !actionValue ||
+      !triggerBlockchain.length ||
+      !triggerType.length ||
+      !service.length ||
+      !actionType.length
+    ) {
+      alert("Please fill in all fields");
+      return;
+    }
+
     const data = {
       address,
       appletName,
@@ -47,8 +59,7 @@ const Home: NextPage = () => {
 
       const responseData = await response.json();
       console.log("responsedata", responseData);
-      // Show response in an alert
-      // alert(JSON.stringify(responseData));
+
       if (responseData.success == true) {
         alert('Event created')
         window.open('/appletpage', '_blank'); // Change the URL as needed

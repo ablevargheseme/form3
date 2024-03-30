@@ -1,11 +1,8 @@
-
-import eventModel from "../../lib/mongo/models/event/index.js"
-import connectMongoose from "../../lib/mongo/index.js"
-
+import connectMongoose from "../../lib/mongo/index.js";
+import eventModel from "../../lib/mongo/models/event/index.js";
 
 export async function POST(request) {
     try {
-
         const data = await request.json();
         const {
             address,
@@ -32,18 +29,47 @@ export async function POST(request) {
             triggerBlockchain: triggerBlockchain[0],
             triggerType: triggerType[0],
             service: service[0],
-            actionType: actionType[0]
+            actionType: actionType[0],
         });
         console.log("event created");
 
-        return new Response(JSON.stringify({ success: true }), { status: 200, headers: { 'Content-Type': 'application/json' } });
+        return new Response(JSON.stringify({ success: true }), {
+            status: 200,
+            headers: { "Content-Type": "application/json" },
+        });
     } catch (error) {
         // Handle any errors
-        return new Response(JSON.stringify({ error: error.message }), { status: 500, headers: { 'Content-Type': 'application/json' } });
+        return new Response(JSON.stringify({ error: error.message }), {
+            status: 500,
+            headers: { "Content-Type": "application/json" },
+        });
     }
+}
 
+export async function GET(request) {
+    try {
 
+        const url = new URL(request.url);
+        const searchParams = url.searchParams;
+        const address = searchParams.get("address");
+        await connectMongoose();
 
+        const documents = await eventModel.find({
+            address: address,
+        });
+
+        return new Response(JSON.stringify(documents), {
+            status: 200,
+            headers: { "Content-Type": "application/json" },
+        });
+    } catch (error) {
+        // Handle any errors
+        console.log("error", error);
+        return new Response(JSON.stringify({ error: error.message }), {
+            status: 500,
+            headers: { "Content-Type": "application/json" },
+        });
+    }
 }
 
 // export  async function handler(req, res) {
