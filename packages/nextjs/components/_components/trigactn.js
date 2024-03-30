@@ -1,20 +1,19 @@
-import { use, useState, useEffect, useRef } from "react";
+import { use, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import Datepicker from "react-tailwindcss-datepicker";
-import { useFilePicker } from 'use-file-picker';
-import { FileSizeValidator } from "use-file-picker/validators";
 //import { mintNft } from "../../services/client/AppletCreationService";
-import { uploadToStorage } from "../../services/client/AppletCreationService";
+// import { uploadToStorage } from "../../services/client/AppletCreationService";
 import FileSelector from "./Fileselector";
-import Mint from "./mint";
+// import Datepicker from "react-tailwindcss-datepicker";
+import { useFilePicker } from "use-file-picker";
+import { FileSizeValidator } from "use-file-picker/validators";
+
+// import Mint from "./mint";
 export default function Actiontrig({
   appletName,
   setAppletName,
   appletDescription,
   setAppletDescription,
-  periodOfActivity,
-  setPeriodOfActivity,
   triggerBlockchain,
   setTriggerBlockchain,
   triggerType,
@@ -26,74 +25,42 @@ export default function Actiontrig({
   ownershipContractAddress,
   setOwnershipContractAddress,
   actionValue,
-  setActionValue
+  setActionValue,
 }) {
-  const [pet, setPet] = useState();
-  const [walletConnected, setWalletConnected] = useState(false);
-  const [navbar, setNavbar] = useState(false);
   const [showModal1, setShowModal1] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [mintloading, setMintloading] = useState(false);
-
-
-
-
-  // Add a check for errors and log them, if any
-  useEffect(() => {
-    setSelectedImage(pet);
-    //console.log("selected image,", pet);
-  }, [pet]);
-
-
-  const handleDateChange = (newValue) => {
-    setPeriodOfActivity(newValue);
-  };
 
   //for option slection
   const [selectedOptions, setSelectedOptions] = useState([]);
 
-  const handleTriggerBlockchain = (event) => {
-    const options = Array.from(
-      event.target.selectedOptions,
-      (option) => option.value
-    );
+  const handleTriggerBlockchain = event => {
+    const options = Array.from(event.target.selectedOptions, option => option.value);
     setTriggerBlockchain(options);
     console.log(JSON.stringify(options));
   };
-  const handleMintApplet = async (event) => {
-    setMintloading(true);
-    console.log('mint')
-    await uploadToStorage(pet, appletName, appletDescription)
-    setMintloading(false);
-    // await mintNft(selectedImage, appletName, appletDescription);
-  };
-  const handleTriggerType = (event) => {
-    const options = Array.from(
-      event.target.selectedOptions,
-      (option) => option.value
-    );
+  // const handleMintApplet = async (event) => {
+  //   setMintloading(true);
+  //   console.log('mint')
+  //   await uploadToStorage(pet, appletName, appletDescription)
+  //   setMintloading(false);
+  //   // await mintNft(selectedImage, appletName, appletDescription);
+  // };
+  const handleTriggerType = event => {
+    const options = Array.from(event.target.selectedOptions, option => option.value);
     setTriggerType(options);
     console.log(JSON.stringify(options));
   };
-  const handleServiceChange = (event) => {
-    const options = Array.from(
-      event.target.selectedOptions,
-      (option) => option.value
-    );
+  const handleServiceChange = event => {
+    const options = Array.from(event.target.selectedOptions, option => option.value);
     setService(options);
     console.log(JSON.stringify(options));
   };
 
-  const handleActionType = (event) => {
-    const options = Array.from(
-      event.target.selectedOptions,
-      (option) => option.value
-    );
+  const handleActionType = event => {
+    const options = Array.from(event.target.selectedOptions, option => option.value);
     setActionType(options);
     console.log(JSON.stringify(options));
   };
-
 
   const [formData, setFormData] = useState({
     address: "",
@@ -101,118 +68,43 @@ export default function Actiontrig({
     colctname: "",
   });
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const jsonData = JSON.stringify(formData);
-    console.log(jsonData); // or send jsonData to the server
-  };
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   const jsonData = JSON.stringify(formData);
+  //   console.log(jsonData); // or send jsonData to the server
+  // };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
-  };
+  // const handleChange = (event) => {
+  //   const { name, value } = event.target;
+  //   setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+  // };
 
   return (
     <div className="inner-body mt-4 rounded-2xl h-fit">
-
       <div className="flex justify-center items-center my-20">
         <div className="">
           <form
             className="frame rounded-2xl md:p-5 p-4 lg:px-40 md:px-20 mx-6"
           // onSubmit={handleCredSubmit}
           >
-            <div className="font-semibold flex justify-center">
-              CREATE NEW APPLET
-            </div>
-            <label className="block text-white text-sm font-semibold mb-2 mt-5">
-              Applet Name
-            </label>
-            <div>
-              <button
-                className="bg-[#331a3e] p-2 px-5 rounded-xl"
-                type="button"
-              //onClick={handleFileSelect}
-              >
-                PIck Applet preview Image
-              </button>
-              <FileSelector pet={pet} setPet={setPet} />
-              {/* {pet && (
-                <div className="mt-4">
-                  <h4>Selected Image Preview:</h4>
-                  <img src={pet} alt="Selected" width="200" height="200" />
-                </div>
-              )} */}
-            </div>
+            <div className="font-semibold flex justify-center">CREATE NEW APPLET</div>
+            <label className="block text-white text-sm font-semibold mb-2 mt-5">Applet Name</label>
 
             <input
               className="shadow appearance-none rounded p-2 pr-20 text-white bg-transparent border w-full"
               type="text"
               value={appletName}
-              onChange={(e) => setAppletName(e.target.value)}
+              onChange={e => setAppletName(e.target.value)}
             />
-            <label className="block text-white text-sm font-bold my-2">
-              Applet Description
-            </label>
+            <label className="block text-white text-sm font-bold my-2">Applet Description</label>
             <input
               className="shadow appearance-none rounded p-2 px-3 text-white bg-transparent border w-full"
               type="text"
               name="description"
               value={appletDescription}
-              onChange={(e) => setAppletDescription(e.target.value)}
+              onChange={e => setAppletDescription(e.target.value)}
               placeholder="What this applet does...!?"
             />
-
-            <label className="block text-white text-sm font-bold my-2">
-              Period of activity
-            </label>
-            <div className="appearance-none  rounded w-full py-1  text-black">
-              <Datepicker
-                value={periodOfActivity}
-                onChange={handleDateChange}
-                showShortcuts={true}
-              />
-            </div>
-            <label
-              for="blockchain"
-              class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left mt-8"
-            >
-              Blockchain
-            </label>
-            <select
-              id="blockchain"
-              class="bg-white border border-gray-300 text-black text-sm rounded-lg 
-                focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white
-                dark:border-gray-600 dark:placeholder-black dark:text-black dark:focus:ring-blue-500 
-                dark:focus:border-blue-500"
-              onChange={handleTriggerBlockchain}
-            >
-              <option defaultValue="arbitrum">...</option>
-              <option value="arbitrum">arbitrum</option>
-              <option value="Polygon">Polygon</option>
-              <option value="Base">Base</option>
-            </select>
-            {/* <button
-              className="mt-6 text-white bg-blue-500 active:bg-blue-700 font-bold uppercase text-sm px-12 py-2 rounded-2xl shadow hover:shadow-lg outline-none focus:outline-none"
-              onClick={handleMintApplet}
-            >
-              Mint Applet
-            </button> */}
-            <button
-              className="bg-[#331a3e] p-2 px-5 rounded-xl"
-              type="button"
-              onClick={() => handleMintApplet()}
-            >
-              {mintloading ? "Loading..." : "Mint applet"}
-            </button>
-            {/* <Mint /> */}
-            {/* <div className="flex justify-center">
-              <button
-                className="mt-6 text-white bg-blue-500 active:bg-blue-700 font-bold uppercase text-sm px-12 py-2 rounded-2xl shadow hover:shadow-lg outline-none focus:outline-none"
-                type="submit"
-              >
-                Submit
-              </button>
-            </div> */}
           </form>
         </div>
       </div>
@@ -224,10 +116,7 @@ export default function Actiontrig({
             Relevant for multiple users, extended & premium support.
           </p>
 
-          <label
-            for="blockchain"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left mt-8"
-          >
+          <label for="blockchain" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left mt-8">
             Blockchain
           </label>
           <select
@@ -244,10 +133,7 @@ export default function Actiontrig({
             <option value="Base">Base</option>
           </select>
 
-          <label
-            for="trigger"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left mt-8"
-          >
+          <label for="trigger" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left mt-8">
             Trigger Type
           </label>
           <select
@@ -266,11 +152,7 @@ export default function Actiontrig({
           </select>
 
           <div className="flex justify-center mt-10">
-            <button
-              className="bg-[#331a3e] p-2 px-5 rounded-xl"
-              type="button"
-              onClick={() => setShowModal(true)}
-            >
+            <button className="bg-[#331a3e] p-2 px-5 rounded-xl" type="button" onClick={() => setShowModal(true)}>
               Add Config
             </button>
           </div>
@@ -282,10 +164,7 @@ export default function Actiontrig({
             Best for large scale uses and extended redistribution rights.
           </p>
 
-          <label
-            for="countries"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left mt-8"
-          >
+          <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left mt-8">
             Service
           </label>
           <select
@@ -302,10 +181,7 @@ export default function Actiontrig({
             {/* <option value="BTC">Bitcoin</option> */}
           </select>
 
-          <label
-            for="countries"
-            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left mt-8"
-          >
+          <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left mt-8">
             Action Type
           </label>
           <select
@@ -319,11 +195,7 @@ export default function Actiontrig({
           </select>
 
           <div className="flex justify-center mt-10">
-            <button
-              className="bg-[#331a3e] p-2 px-5 rounded-xl"
-              type="button"
-              onClick={() => setShowModal1(true)}
-            >
+            <button className="bg-[#331a3e] p-2 px-5 rounded-xl" type="button" onClick={() => setShowModal1(true)}>
               Add Config
             </button>
           </div>
@@ -331,8 +203,6 @@ export default function Actiontrig({
       </div>
 
       <div className="flex justify-center my-8">
-
-
         {showModal ? (
           <>
             <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
@@ -350,9 +220,7 @@ export default function Actiontrig({
                     </button>
                   </div>
                   <div className="relative p-6 flex-auto">
-                    <form
-                      className="rounded px-8 pt-6 pb-8 w-full"
-                    >
+                    <form className="rounded px-8 pt-6 pb-8 w-full">
                       <label className="block text-transparent text-md text-white font-bold mb-2">
                         NFT Contract address
                       </label>
@@ -361,7 +229,7 @@ export default function Actiontrig({
                         type="text"
                         name="address"
                         value={ownershipContractAddress}
-                        onChange={(e) => setOwnershipContractAddress(e.target.value)}
+                        onChange={e => setOwnershipContractAddress(e.target.value)}
                       />
                       <button
                         className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1"
@@ -395,30 +263,20 @@ export default function Actiontrig({
                       className="bg-transparent border-0 text-black float-right"
                       onClick={() => setShowModal1(false)}
                     >
-                      <span className="text-black opacity-7 h-6 w-6 text-xl block bg-gray-400 rounded-full">
-                        x
-                      </span>
+                      <span className="text-black opacity-7 h-6 w-6 text-xl block bg-gray-400 rounded-full">x</span>
                     </button>
                   </div>
                   <div className="relative p-6 flex-auto">
-                    <form
-                      className="rounded px-8 pt-6 pb-8 w-full"
-
-                    >
-                      <label className="block text-transparent text-md text-white font-bold mb-2">
-                        Action
-                      </label>
-                      <label className="block text-transparent text-md text-white font-bold mb-2">
-                        Action Value
-                      </label>
+                    <form className="rounded px-8 pt-6 pb-8 w-full">
+                      <label className="block text-transparent text-md text-white font-bold mb-2">Action</label>
+                      <label className="block text-transparent text-md text-white font-bold mb-2">Action Value</label>
                       <input
                         className="shadow appearance-none border rounded w-full py-2 px-1 mb-1 text-black"
                         type="text"
                         name="address"
                         value={actionValue}
-                        onChange={(e) => setActionValue(e.target.value)}
+                        onChange={e => setActionValue(e.target.value)}
                       />
-
 
                       <button
                         className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1"
