@@ -21,10 +21,10 @@ const Home: NextPage = () => {
           <p className="text-center text-2xl pt-4">
             Unlock real-time updates: Receive notifications to your socials directly from your wallet address.
           </p>
-          <div className="flex justify-center items-center space-x-2">
+          {/* <div className="flex justify-center items-center space-x-2">
             <p className="my-2 font-medium">Connected Address:</p>
             <Address address={connectedAddress} />
-          </div>
+          </div> */}
 
           <Link href="/newapplet" passHref className="">
             <div className="flex justify-center items-center gap-12 flex-col sm:flex-row mt-12">
@@ -46,9 +46,9 @@ const Home: NextPage = () => {
                 <p className="text-sm">bash</p>
               </div>
               <div className="mt-4">
-                <p className="text-green-400">$ npm install next</p>
-                <p className="text-white">+ next@10.2.3</p>
-                <p className="text-white">added 1 package, and audited 2 packages in 3s</p>
+                <p className="text-green-400">$ How to CONNECT3?</p>
+                <p className="text-white">+ Connect wallet with any social app</p>
+                <p className="text-white">stream all wallet activites to your socials!</p>
                 <p className="text-green-400">$</p>
               </div>
             </aside>
@@ -58,7 +58,7 @@ const Home: NextPage = () => {
             <p className="block text-6xl font-bold bg-gradient-to-r from-purple-400 to-pink-600 inline-block text-transparent bg-clip-text">Get Started!</p>
           </div>
           <div className="flex justify-center items-center gap-12 flex-col sm:flex-row mt-12">
-            <FeatureSection imageUrl="https://dummyimage.com/460x500" />
+            <FeatureSection imageUrl="/opening.gif" />
           </div>
       
         </div>
