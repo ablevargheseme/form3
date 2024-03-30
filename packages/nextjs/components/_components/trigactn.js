@@ -68,11 +68,11 @@ export default function Actiontrig({
     colctname: "",
   });
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   const jsonData = JSON.stringify(formData);
-  //   console.log(jsonData); // or send jsonData to the server
-  // };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const jsonData = JSON.stringify(formData);
+    console.log(jsonData); // or send jsonData to the server
+  };
 
   // const handleChange = (event) => {
   //   const { name, value } = event.target;
@@ -85,7 +85,7 @@ export default function Actiontrig({
         <div className="">
           <form
             className="frame rounded-2xl md:p-5 p-4 lg:px-40 md:px-20 mx-6"
-          // onSubmit={handleCredSubmit}
+            onSubmit={handleSubmit}
           >
             <div className="font-semibold flex justify-center">CREATE NEW APPLET</div>
             <label className="block text-white text-sm font-semibold mb-2 mt-5">Applet Name</label>
@@ -146,9 +146,8 @@ export default function Actiontrig({
           >
             <option defaultValue="NFT_ownership">....</option>
             <option value="wallet_message">Wallet message</option>
-            <option value="NFT_ownership">NFT ownership</option>
-            <option value="NFT_transaction">NFT transaction</option>
-            <option value="crypto_transfer">Crypto transfer</option>
+            <option value="NFT_ownership">NFT transaction</option>
+            <option value="NFT_transaction">Uniswap</option>
           </select>
 
           <div className="flex justify-center mt-10">
@@ -172,13 +171,9 @@ export default function Actiontrig({
             class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
             onChange={handleServiceChange}
           >
-            <option defaultValue="IoT_hardware">..</option>
-            <option value="IoT_hardware">IoT hardware</option>
-            <option value="Wallet message">Wallet message</option>
-            <option value="Social_media">Social media</option>
-            <option value="Youtube">Youtube</option>
+            <option value="telegram">Telegram</option>
+            <option value="whatsapp">Whatsapp</option>
             <option value="Twitter">Twitter</option>
-            {/* <option value="BTC">Bitcoin</option> */}
           </select>
 
           <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white text-left mt-8">
@@ -189,9 +184,9 @@ export default function Actiontrig({
             class="bg-white border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
             onChange={handleActionType}
           >
-            <option defaultValue="Send_command">...</option>
-            <option value="Send_command">Send command</option>
-            <option value="Push_message">Push message</option>
+            <option defaultValue="message">...</option>
+            <option value="message">Send message</option>
+            <option value="post">Post</option>
           </select>
 
           <div className="flex justify-center mt-10">
