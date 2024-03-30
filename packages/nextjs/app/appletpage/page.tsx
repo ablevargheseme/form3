@@ -13,6 +13,11 @@ const Home: NextPage = () => {
   return (
     <>
       <div className="flex items-center flex-col flex-grow pt-10">
+      <div className="flex justify-center items-center space-x-2">
+            <p className="my-2 font-medium">applets for user address:</p>
+            <Address address={connectedAddress} />
+          </div>
+
         <div className="px-5">
          <Applet/> 
         </div>

@@ -68,11 +68,11 @@ export default function Actiontrig({
     colctname: "",
   });
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const jsonData = JSON.stringify(formData);
-    console.log(jsonData); // or send jsonData to the server
-  };
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  //   const jsonData = JSON.stringify(formData);
+  //   // console.log("actiontrig", jsonData); // or send jsonData to the server
+  // };
 
   // const handleChange = (event) => {
   //   const { name, value } = event.target;
@@ -85,7 +85,7 @@ export default function Actiontrig({
         <div className="">
           <form
             className="frame rounded-2xl md:p-5 p-4 lg:px-40 md:px-20 mx-6"
-            onSubmit={handleSubmit}
+          // onSubmit={handleSubmit}
           >
             <div className="font-semibold flex justify-center">CREATE NEW APPLET</div>
             <label className="block text-white text-sm font-semibold mb-2 mt-5">Applet Name</label>

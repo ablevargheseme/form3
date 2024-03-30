@@ -1,36 +1,26 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
+import Actiontrig from "../../components/_components/trigactn";
 import type { NextPage } from "next";
+
 import { useAccount } from "wagmi";
 import { BugAntIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-import { Address } from "~~/components/scaffold-eth";
-import { useState } from "react";
-import Actiontrig from "../../components/_components/trigactn";
-import { useFilePicker } from "use-file-picker";
-import { FileSizeValidator } from "use-file-picker/validators";
+// import { Address } from "~~/components/scaffold-eth";
 
 const Home: NextPage = () => {
   const { address: connectedAddress } = useAccount();
 
-
-
-
-
-
-
-  const [appletName, setAppletName] = useState('myapplet');
-  const [appletDescription, setAppletDescription] = useState('description..');
-  const [ownershipContractAddress, setOwnershipContractAddress] = useState('');
-  const [actionValue, setActionValue] = useState('');
-  const address ="testaddress"
+  const [appletName, setAppletName] = useState("myapplet");
+  const [appletDescription, setAppletDescription] = useState("description..");
+  const [ownershipContractAddress, setOwnershipContractAddress] = useState("");
+  const [actionValue, setActionValue] = useState("");
+  const address = connectedAddress;
   const [triggerBlockchain, setTriggerBlockchain] = useState([]);
   const [triggerType, setTriggerType] = useState([]);
   const [service, setService] = useState([]);
   const [actionType, setActionType] = useState([]);
-
-
-
 
   const handleCreateClick = async () => {
     const data = {
@@ -46,17 +36,17 @@ const Home: NextPage = () => {
     };
     console.log("create applet data", data);
     try {
-      const response = await fetch('/api/event', {
-        method: 'POST',
+      const response = await fetch("/api/event", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
           // Add any other headers needed for authentication, etc.
         },
         body: JSON.stringify(data),
       });
 
       const responseData = await response.json();
-      console.log('responsedata', responseData);
+      console.log("responsedata", responseData);
       // Show response in an alert
       // alert(JSON.stringify(responseData));
       if (response.ok) {
@@ -65,56 +55,42 @@ const Home: NextPage = () => {
       }
     } catch (error) {
       // Handle error, show an error alert
-      alert('Error creating data');
-      console.error('Error:', error);
+      alert("Error creating data");
+      console.error("Error:", error);
     }
   };
-
-
-
-
-
-
-
-
-
 
   return (
     <>
       <div className="flex items-center flex-col flex-grow pt-10">
         <div>
-        <div className="main-body h-fit flex justify-center">
+          <div className="main-body h-fit flex justify-center">
+            <Actiontrig
+              appletName={appletName}
+              setAppletName={setAppletName}
+              appletDescription={appletDescription}
+              setAppletDescription={setAppletDescription}
+              triggerBlockchain={triggerBlockchain}
+              setTriggerBlockchain={setTriggerBlockchain}
+              triggerType={triggerType}
+              setTriggerType={setTriggerType}
+              service={service}
+              setService={setService}
+              actionType={actionType}
+              setActionType={setActionType}
+              ownershipContractAddress={ownershipContractAddress}
+              setOwnershipContractAddress={setOwnershipContractAddress}
+              actionValue={actionValue}
+              setActionValue={setActionValue}
+            />
+          </div>
 
-<Actiontrig
-
-  appletName={appletName}
-  setAppletName={setAppletName}
-  appletDescription={appletDescription}
-  setAppletDescription={setAppletDescription}
-  triggerBlockchain={triggerBlockchain}
-  setTriggerBlockchain={setTriggerBlockchain}
-  triggerType={triggerType}
-  setTriggerType={setTriggerType}
-  service={service}
-  setService={setService}
-  actionType={actionType}
-  setActionType={setActionType}
-  ownershipContractAddress={ownershipContractAddress}
-  setOwnershipContractAddress={setOwnershipContractAddress}
-  actionValue={actionValue}
-  setActionValue={setActionValue}
-
-
-/>
-</div>
-
-
-<button
-className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-onClick={handleCreateClick}
->
-Create
-</button>
+          <button
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            onClick={handleCreateClick}
+          >
+            Create
+          </button>
         </div>
 
         <div className="flex-grow bg-base-300 w-full mt-16 px-8 py-12">
