@@ -26,7 +26,7 @@ const Home: NextPage = () => {
             <Address address={connectedAddress} />
           </div> */}
 
-          <Link href="/newapplet" passHref className="">
+          <Link href="/appletpage" passHref className="">
             <div className="flex justify-center items-center gap-12 flex-col sm:flex-row mt-12">
               <div className="flex justify-center flex-col bg-base-100 px-4 py-2 text-center items-center max-w-xs rounded-3xl border-2  transform hover:border-green-600 hover:border-2">
                 <ForwardIcon className="h-6 w-6 fill-secondary" />
